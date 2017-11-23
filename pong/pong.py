@@ -3,7 +3,7 @@ from pygame.locals import *
 
 # Number of frames per second
 # Change this value to speed up or slow down your game
-FPS = 500
+FPS = 200
 
 #Global Variables to be used through our program
 
@@ -181,7 +181,7 @@ class Pong():
             self.FPSCLOCK.tick(FPS)
 
             pong_start = True
-            
+
 def startPong():
     pong = Pong()
     pong.play_PONG()

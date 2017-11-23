@@ -182,6 +182,10 @@ class Pong():
 
             pong_start = True
 
+
+if __name__ == '__main__':
+    startPong()
+
 def startPong():
     pong = Pong()
     pong.play_PONG()

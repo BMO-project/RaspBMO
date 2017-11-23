@@ -181,11 +181,12 @@ class Pong():
             self.FPSCLOCK.tick(FPS)
 
             pong_start = True
-
+            
+def startPong():
+    pong = Pong()
+    pong.play_PONG()
 
 if __name__ == '__main__':
     startPong()
 
-def startPong():
-    pong = Pong()
-    pong.play_PONG()
+

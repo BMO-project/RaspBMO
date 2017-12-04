@@ -1,6 +1,6 @@
 import pygame, sys
 from pygame.locals import *
-
+from threading import Thread
 # Number of frames per second
 # Change this value to speed up or slow down your game
 FPS = 200
@@ -18,9 +18,14 @@ BLACK     = (0  ,0  ,0  )
 WHITE     = (255,255,255)
 
 pong_start = False
+DISPLAYSURF = None
 
 class Pong():
-    def __init__(self):
+    def __init__(self, ser):
+        self.ser = ser
+        self.key_up_pressing = False
+        self.key_down_pressing = False
+        self.key_esc_pressed = False
         pass
 
     #Draws the arena the game will be played in.
@@ -67,7 +72,8 @@ class Pong():
             return -1
         elif self.ballDirX == 1 and self.paddle2.left == self.ball.right and self.paddle2.top+3 < self.ball.top and self.paddle2.bottom+3 > self.ball.bottom:
             return -1
-        else: return 1
+        else:
+            return 1
 
     #Checks to see if a point has been scored returns new score
     def checkPointScored(self):
@@ -75,13 +81,14 @@ class Pong():
         if self.ball.left == LINETHICKNESS:
             return 0
         #1 point for hitting the ball
-        elif self.ballDirX == -1 and self.paddle1.right == self.ball.left and self.paddle1.top < self.ball.top and self.paddle1.bottom > self.ball.bottom:
+        elif self.ballDirX == -1 and self.paddle1.right == self.ball.left and self.paddle1.top+8 < self.ball.top and self.paddle1.bottom+8 > self.ball.bottom:
             self.score += 1
         #5 points for beating the other paddle
         elif self.ball.right == WINDOWWIDTH - LINETHICKNESS:
             self.score += 5
         #if no points scored, return score unchanged
-        else: pass
+        else:
+            pass
 
     #Artificial Intelligence of computer player
     def artificialIntelligence(self):
@@ -106,7 +113,10 @@ class Pong():
         DISPLAYSURF.blit(resultSurf, resultRect)
 
     #Main function
-    def play_PONG(self):
+    def run(self):
+        print("start game")
+        global pong_start
+        pong_start = True
         self.score = 0
         pygame.init()
         global DISPLAYSURF
@@ -126,7 +136,7 @@ class Pong():
         ballY = WINDOWHEIGHT / 2 - LINETHICKNESS / 2
         playerOnePosition = (WINDOWHEIGHT - PADDLESIZE) / 2
         playerTwoPosition = (WINDOWHEIGHT - PADDLESIZE) / 2
-
+        print("start game")
         # Keeps track of ball direction
         self.ballDirX = -1  ## -1 = left 1 = right
         self.ballDirY = -1  ## -1 = up 1 = down
@@ -145,24 +155,38 @@ class Pong():
 
         pygame.mouse.set_visible(0)  # make cursor invisible
 
-        global pong_start
-        while True: #main game loop
+        # self.ser.timeout = 0
+
+        serialReadThread = Thread(target=self.check_input)
+        serialReadThread.daemon = False
+        serialReadThread.start()
+        print("start game")
+        self.key_esc_pressed = False
+        while not self.key_esc_pressed: #main game loop
+            # self.check_input(self.ser.readline())
+            print("start game")
             for event in pygame.event.get():
                 if event.type == QUIT:
                     pygame.quit()
                     sys.exit()
                 # keyboard movement commands
-            if pygame.key.get_pressed()[pygame.K_UP] != 0:
+            if self.key_up_pressing:
                 self.paddle1.y -= 1
-            elif pygame.key.get_pressed()[pygame.K_DOWN] != 0:
+            elif self.key_down_pressing:
                 self.paddle1.y += 1
 
-            if (pygame.key.get_pressed()[pygame.K_ESCAPE] != 0 or
-                pygame.key.get_pressed()[pygame.K_BACKSPACE] != 0):
-                pong_start = False
-                #pygame.quit()
-                #sys.exit()
-                break
+            # if self.key_esc_pressed:
+            #     pong_start = False
+            #     self.key_esc_pressed = False
+            #     try:
+            #         # pygame.display.quit()
+            #         pygame.quit()
+            #         break
+            #         # sys.exit()
+            #     except Exception as e:
+            #         print(e)
+            #     finally:
+            #         pygame.quit()
 
             self.drawArena()
             self.drawPaddle(self.paddle1)
@@ -179,8 +203,39 @@ class Pong():
 
             pygame.display.update()
             self.FPSCLOCK.tick(FPS)
+        self.key_esc_pressed = False
 
-            pong_start = True
+    def check_input(self):
+        while True:
+            if self.ser.inWaiting() > 0:
+                try:
+                    data_str = str(self.ser.readline().decode('UTF-8')).rstrip().lstrip()
+                    print(data_str)
+
+                    if data_str.startswith("PRESS"):
+                        str_split = data_str.split(" ")
+                        if str_split[1] == "UP":
+                            self.key_up_pressing = True
+                        elif str_split[1] == "DOWN":
+                            self.key_down_pressing = True
+                        elif str_split[1] == "ESC":
+                            self.key_esc_pressed = True
+                            break
+
+                    if data_str.startswith("RELEASE"):
+                        str_split = data_str.split(" ")
+                        if str_split[1] == "UP":
+                            self.key_up_pressing = False
+                        elif str_split[1] == "DOWN":
+                            self.key_down_pressing = False
+
+
+                except Exception as e:
+                    print(e)
+
+            else:
+                pass
+                # print("b")
 
 def startPong():
     pong = Pong()

@@ -1,4 +1,18 @@
 #include <OneWire.h>  // 디지털 온도 센서를 사용하기 위해서는 이 라이브러리를 사용해야 한다.
+#include <Wire.h>
+
+#include <Adafruit_Sensor.h>//기울기센서
+#include <Adafruit_ADXL345_U.h>
+
+#include <SD.h>                      // need to include the SD library
+#define SD_ChipSelectPin 4  //using digital pin 4 on arduino nano 328
+#include <TMRpcm.h>           //  also need to include this library...
+#include <SPI.h> 
+
+/* Assign a unique ID to this sensor at the same time */
+Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified(12345);
+
+TMRpcm tmrpcm;
 
 OneWire ds(8); // 2번 핀에 연결된 OneWire 개체 생성
 
@@ -22,6 +36,13 @@ void setup() {
   pinMode(btn_ESC, INPUT_PULLUP);
   pinMode(btn_UP, INPUT_PULLUP);
   pinMode(btn_DOWN, INPUT_PULLUP);
+
+  if(!accel.begin())
+{
+/* There was a problem detecting the ADXL345 … check your connections */
+Serial.println("Ooops, no ADXL345 detected … Check your wiring!");
+while(1);
+}
 }
 
 void loop() {
@@ -77,6 +98,32 @@ void loop() {
     isDown = false;
   }
   
+  
+}
+
+void getTilt(){
+  /* Get a new tilt sensor event */ 
+sensors_event_t event; 
+accel.getEvent(&event);
+
+ float x= event.acceleration.x,y= event.acceleration.y,z= event.acceleration.z
+}
+
+void getVoice(){//play BMO voice!
+  tmrpcm.speakerPin = 9; //11 on Mega, 9 on Uno, Nano, etc
+
+ 
+
+  if (!SD.begin(SD_ChipSelectPin)) {  // see if the card is present and can be initialized:
+
+  return;   // don't do anything more if not
+
+  }
+ tmrpcm.volume(7);
+ tmrpcm.setVolume(7);      //Serial.print("hi1");
+
+ //tmrpcm.play("6.wav"); //the sound file "1" will play each time the arduino powers up, or is reset
+tmrpcm.play("0002.wav");
 }
 
 float getTemperature() {
@@ -91,7 +138,7 @@ float getTemperature() {
     ds.reset_search();
     return -1;
   }
-  
+  g
   ds.reset();
   ds.select(addr);
   ds.write(0x44,1); // start conversion, with parasite power on at the end

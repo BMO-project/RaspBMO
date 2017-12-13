@@ -23,7 +23,7 @@ class BMOBrain():
         main_loop.start()
 
     def run_loop(self):
-        self.ser.port = '/dev/cu.usbmodem1421'
+        self.ser.port = '/dev/ttyACM0'
         self.ser.baudrate = 9600
         self.ser.timeout = 1
         self.ser.open()

@@ -33,7 +33,7 @@ class Temp():
         clock = pygame.time.Clock()
 
         Temp_start = True
-
+        pygame.mouse.set_visible(0)  # make cursor invisible
         serialReadThread = Thread(target=self.check_input)
         serialReadThread.daemon = True
         serialReadThread.start()

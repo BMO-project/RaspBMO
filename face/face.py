@@ -38,7 +38,7 @@ class Face():
         screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
         pygame.display.set_caption("Face")
         c = pygame.time.Clock()  # create a clock object for timing
-
+        pygame.mouse.set_visible(0)  # make cursor invisible
         # serialReadThread = Thread(target=self.check_input)
         # serialReadThread.daemon = True
         # serialReadThread.start()

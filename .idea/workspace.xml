@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4b51cda-4239-4a58-b496-d53da656b886" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/arduino/BMO/BMO.ino" afterPath="$PROJECT_DIR$/arduino/BMO/BMO.ino" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/face/face.py" afterPath="$PROJECT_DIR$/face/face.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_brain.py" afterPath="$PROJECT_DIR$/main_brain.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pong/pong.py" afterPath="$PROJECT_DIR$/pong/pong.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temperature/temp.py" afterPath="$PROJECT_DIR$/temperature/temp.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main_brain.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main_brain.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_brain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="50" column="56" lean-forward="false" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
+            <state relative-caret-position="337">
+              <caret line="57" column="36" lean-forward="true" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -52,8 +49,8 @@
       <file leaf-file-name="pong.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pong/pong.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="144" column="91" lean-forward="true" selection-start-line="144" selection-start-column="72" selection-end-line="144" selection-end-column="91" />
+            <state relative-caret-position="144">
+              <caret line="178" column="60" lean-forward="true" selection-start-line="178" selection-start-column="8" selection-end-line="178" selection-end-column="60" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -61,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="temp.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="temp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/temperature/temp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state relative-caret-position="179">
+              <caret line="29" column="71" lean-forward="true" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="71" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -86,8 +83,8 @@
       <file leaf-file-name="face.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/face/face.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="53" column="38" lean-forward="true" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+            <state relative-caret-position="207">
+              <caret line="40" column="60" lean-forward="false" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -142,6 +139,7 @@
       <find>pong_start</find>
       <find>BASICFONT</find>
       <find>displaySco</find>
+      <find>mouse</find>
     </findStrings>
     <replaceStrings>
       <replace>self.ball</replace>
@@ -157,9 +155,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/pong/pong.py" />
-        <option value="$PROJECT_DIR$/temperature/temp.py" />
-        <option value="$PROJECT_DIR$/face/face.py" />
         <option value="$PROJECT_DIR$/main_brain.py" />
+        <option value="$PROJECT_DIR$/face/face.py" />
+        <option value="$PROJECT_DIR$/temperature/temp.py" />
       </list>
     </option>
   </component>
@@ -837,18 +835,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pong/pong.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="144" column="91" lean-forward="true" selection-start-line="144" selection-start-column="72" selection-end-line="144" selection-end-column="91" />
+        <state relative-caret-position="144">
+          <caret line="178" column="60" lean-forward="true" selection-start-line="178" selection-start-column="8" selection-end-line="178" selection-end-column="60" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main_brain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="57" column="36" lean-forward="true" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/face/face.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="53" column="38" lean-forward="true" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+        <state relative-caret-position="207">
+          <caret line="40" column="60" lean-forward="false" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -857,18 +865,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/temperature/temp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_brain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="50" column="56" lean-forward="false" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
+        <state relative-caret-position="179">
+          <caret line="29" column="71" lean-forward="true" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="71" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

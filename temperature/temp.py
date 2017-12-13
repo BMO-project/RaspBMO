@@ -1,17 +1,28 @@
 import pygame
-
+from threading import Thread
+FPS = 60
 Temp_start = False
+WINDOWWIDTH = 480
+WINDOWHEIGHT = 320
+
+is_running = True
 
 class Temp():
-    def __init__(self):
+    def __init__(self, ser):
+        global is_running
+        self.ser = ser
         self.temp = 0
         self.humi = 0
+        self.key_esc_pressed = False
+        is_running = True
 
     def setTemp(self, temp, humi):
         self.temp = temp
         self.humi = humi
 
+
     def showTemp(self):
+        global is_running
         global Temp_start
 
         pygame.init()
@@ -20,32 +31,21 @@ class Temp():
 
         pygame.display.set_caption("Key Event")
         clock = pygame.time.Clock()
-        run = True
-
-        text = ""
 
         Temp_start = True
 
-        while run:
-            # pygame.event.get() : 키를 눌렀을때 이벤트
+        serialReadThread = Thread(target=self.check_input)
+        serialReadThread.daemon = True
+        serialReadThread.start()
+
+        while not self.key_esc_pressed:
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:  # esc 누르면 종
                         run = False
 
-            # pygame.key.get_pressed() - 전체 키배열중 현재 눌려져있는 키를 bool형식의 튜플로 반환
-            keys = pygame.key.get_pressed()
-            if keys[pygame.K_LEFT]:
-                text = "Left key press..."
-            elif keys[pygame.K_RIGHT]:
-                text = "Right key press..."
-            elif keys[pygame.K_UP]:
-                text = "Up key press..."
-            elif keys[pygame.K_DOWN]:
-                text = "Down key press..."
-            else:
-                text1 = "Temperature : "+str(self.temp)+"'C"
-                text2 = "Humidity    : "+str(self.humi) + "%"
+            text1 = "Temperature : "+str(self.temp)+"'C"
+            text2 = "Humidity    : "+str(self.humi) + "%"
 
             screen.fill(pygame.color.Color(0, 0, 0))
 
@@ -64,4 +64,37 @@ class Temp():
 
             clock.tick(60)
 
+        Temp_start = False
+        screen.fill(pygame.color.Color(0, 0, 0))
         pygame.quit()
+
+    def check_input(self):
+        while True:
+            if self.ser.inWaiting() > 0:
+                try:
+                    data_str = str(self.ser.readline().decode('UTF-8')).rstrip().lstrip()
+                    print("temp", data_str)
+
+                    if data_str.startswith("PRESS"):
+                        str_split = data_str.split(" ")
+                        if str_split[1] == "UP":
+                            self.key_up_pressing = True
+                        elif str_split[1] == "DOWN":
+                            self.key_down_pressing = True
+                        elif str_split[1] == "ESC":
+                            self.key_esc_pressed = True
+                            break
+
+                    if data_str.startswith("RELEASE"):
+                        str_split = data_str.split(" ")
+                        if str_split[1] == "UP":
+                            self.key_up_pressing = False
+                        elif str_split[1] == "DOWN":
+                            self.key_down_pressing = False
+
+                except Exception as e:
+                    print(e)
+
+                pass
+            else:
+                pass

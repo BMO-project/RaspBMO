@@ -1,7 +1,5 @@
 import serial
-import threading
-from multiprocessing import Pool
-import _thread
+import time
 import multiprocessing
 
 from pong.pong import Pong as Pong
@@ -12,14 +10,13 @@ from temperature.temp import Temp_start as Temp_start
 
 from face.face import Face
 from face.face import Face_start
-from face.face import showFaces
 
 class BMOBrain():
     def __init__(self):
         self.ser = serial.Serial()
         self.pong = None
-        self.temp = Temp()
-        self.face = Face()
+        self.temp = None
+        self.face = None
 
     def start(self):
         main_loop = multiprocessing.Process(self.run_loop())
@@ -28,44 +25,54 @@ class BMOBrain():
     def run_loop(self):
         self.ser.port = '/dev/cu.usbmodem1421'
         self.ser.baudrate = 9600
-        # self.ser.timeout = 0
+        self.ser.timeout = 1
         self.ser.open()
         print("BMO-project v0.1 start!")
         spam_checker = False
-
-        while (True):
+        self.face = Face(self.ser)
+        while True:
             if self.ser.inWaiting() > 0:
                 try:
                     data_str = str(self.ser.readline().decode('UTF-8').lstrip().rstrip())
-                    print(data_str)
+                    print("main", data_str)
+
                     if data_str.startswith("OPEN") and (not spam_checker):
                         msg_arr = data_str.split(" ")
                         if msg_arr[1] == "PONG":  # Play pong game
-                            if not Pong_start and not spam_checker:
+                            if not Pong_start:
+                                self.pong = None
                                 self.pong = Pong(self.ser)
                                 self.pong.run()
+                                # time.sleep(1)
                             pass
                         elif msg_arr[1] == "TEMP":  # Show temperature
-                            spam_checker = True
-
                             if not Temp_start:
+                                self.temp = Temp(self.ser)
                                 self.temp.setTemp(32.6, 45)
                                 self.temp.showTemp()
+                                time.sleep(1)
                             pass
                         elif msg_arr[1] == "FACE":  # Show face
-                            spam_checker = True
-
                             if not Face_start:
-                                showFaces()
+                                self.face.showFaces()
+                                # time.sleep(1)
                             pass
                         else:
                             pass
+                    elif data_str.startswith("PRESS"):
+                        str_split = data_str.split(" ")
+                        if str_split[1] == "UP":
+                            self.face.showFaces()
+                        elif str_split[1] == "DOWN":
+                            self.face.showFaces()
                     else:
                         spam_checker = False
                 except:
                     pass
             else:
                 continue
+
+
 if __name__ == '__main__':
     brain = BMOBrain()
     brain.start()

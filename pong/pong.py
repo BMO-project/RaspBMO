@@ -1,9 +1,10 @@
 import pygame, sys
 from pygame.locals import *
 from threading import Thread
+import time
 # Number of frames per second
 # Change this value to speed up or slow down your game
-FPS = 200
+FPS = 60
 
 #Global Variables to be used through our program
 
@@ -12,13 +13,14 @@ WINDOWHEIGHT = 300
 LINETHICKNESS = 10
 PADDLESIZE = 50
 PADDLEOFFSET = 20
+BASICFONT = 20
+BASICFONTSIZE = None
 
 # Set up the colours
 BLACK     = (0  ,0  ,0  )
 WHITE     = (255,255,255)
 
 pong_start = False
-DISPLAYSURF = None
 
 class Pong():
     def __init__(self, ser):
@@ -26,15 +28,26 @@ class Pong():
         self.key_up_pressing = False
         self.key_down_pressing = False
         self.key_esc_pressed = False
+        self.score = 0
+        self.FPSCLOCK = None
+        self.screen = None
+        self.ballDirX = None
+        self.ballDirY = None
+        self.paddle1 = None
+        self.paddle2 = None
+        self.ball = None
         pass
 
     #Draws the arena the game will be played in.
     def drawArena(self):
-        DISPLAYSURF.fill((0,0,0))
+        # print("asdf")
+        self.screen.fill((0,0,0))
         #Draw outline of arena
-        pygame.draw.rect(DISPLAYSURF, WHITE, ((0, 0), (WINDOWWIDTH, WINDOWHEIGHT)), LINETHICKNESS*2)
+        # print("asdf")
+        pygame.draw.rect(self.screen, WHITE, ((0, 0), (WINDOWWIDTH, WINDOWHEIGHT)), LINETHICKNESS*2)
         #Draw centre line
-        pygame.draw.line(DISPLAYSURF, WHITE, (int((WINDOWWIDTH/2)), 0), (int((WINDOWWIDTH/2)), WINDOWHEIGHT), int((LINETHICKNESS/4)))
+        # print("asdf")
+        pygame.draw.line(self.screen, WHITE, (int((WINDOWWIDTH/2)), 0), (int((WINDOWWIDTH/2)), WINDOWHEIGHT), int((LINETHICKNESS/4)))
 
 
     #Draws the paddle
@@ -46,12 +59,12 @@ class Pong():
         elif paddle.top < LINETHICKNESS:
             paddle.top = LINETHICKNESS
         #Draws paddle
-        pygame.draw.rect(DISPLAYSURF, WHITE, paddle)
+        pygame.draw.rect(self.screen, WHITE, paddle)
 
 
     #draws the ball
     def drawBall(self):
-        pygame.draw.rect(DISPLAYSURF, WHITE, self.ball)
+        pygame.draw.rect(self.screen, WHITE, self.ball)
 
     #moves the ball returns new position
     def moveBall(self):
@@ -107,64 +120,75 @@ class Pong():
 
     #Displays the current score on the screen
     def displayScore(self):
-        resultSurf = BASICFONT.render('Score = %s' %self.score, True, WHITE)
+        resultSurf = BASICFONT.render('Score = %s' % self.score, True, WHITE)
         resultRect = resultSurf.get_rect()
         resultRect.topleft = (WINDOWWIDTH - 150, 25)
-        DISPLAYSURF.blit(resultSurf, resultRect)
+        self.screen.blit(resultSurf, resultRect)
 
     #Main function
     def run(self):
-        print("start game")
+        print("pong???")
+        print("start game11")
         global pong_start
-        pong_start = True
         self.score = 0
         pygame.init()
-        global DISPLAYSURF
+        print("start game12")
         ##Font information
         global BASICFONT, BASICFONTSIZE
-        BASICFONTSIZE = 20
-        BASICFONT = pygame.font.Font('freesansbold.ttf', BASICFONTSIZE)
-
+        # BASICFONTSIZE = 20
+        print("start game13")
+        # BASICFONT = pygame.font.Font('freesansbold.ttf', BASICFONTSIZE)
+        # BASICFONT = pygame.font.SysFont('comicsansms.ttf', BASICFONTSIZE)
+        print("start game2")
         self.FPSCLOCK = pygame.time.Clock()
-        # DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH,WINDOWHEIGHT), pygame.FULLSCREEN)
-        DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
+        print("start game3")
+        # self.screen = pygame.display.set_mode((WINDOWWIDTH,WINDOWHEIGHT), pygame.FULLself.screnn)
+        self.screen = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
+        print("start game4")
         pygame.display.set_caption('Pong')
-
+        print("start game5")
         # Initiate variable and set starting positions
         # any future changes made within rectangles
         ballX = WINDOWWIDTH / 2 - LINETHICKNESS / 2
         ballY = WINDOWHEIGHT / 2 - LINETHICKNESS / 2
         playerOnePosition = (WINDOWHEIGHT - PADDLESIZE) / 2
         playerTwoPosition = (WINDOWHEIGHT - PADDLESIZE) / 2
-        print("start game")
+        # print("start game")
         # Keeps track of ball direction
         self.ballDirX = -1  ## -1 = left 1 = right
         self.ballDirY = -1  ## -1 = up 1 = down
-
+        # print("pong???")
         # Creates Rectangles for ball and paddles.
         self.paddle1 = pygame.Rect(PADDLEOFFSET, playerOnePosition, LINETHICKNESS, PADDLESIZE)
+        # print("pong???")
         self.paddle2 = pygame.Rect(WINDOWWIDTH - PADDLEOFFSET - LINETHICKNESS, playerTwoPosition, LINETHICKNESS,
                                    PADDLESIZE)
+        # print("pong?!!")
         self.ball = pygame.Rect(ballX, ballY, LINETHICKNESS, LINETHICKNESS)
+        # print("pong?!!")
 
         # Draws the starting position of the Arena
         self.drawArena()
+        # print("1")
         self.drawPaddle(self.paddle1)
+        # print("2")
         self.drawPaddle(self.paddle2)
+        # print("3")
         self.drawBall()
 
         pygame.mouse.set_visible(0)  # make cursor invisible
-
+        # print("pong???")
         # self.ser.timeout = 0
 
         serialReadThread = Thread(target=self.check_input)
-        serialReadThread.daemon = False
+        serialReadThread.daemon = True
         serialReadThread.start()
-        print("start game")
+
         self.key_esc_pressed = False
+        pong_start = True
+        # print("pong!!!")
         while not self.key_esc_pressed: #main game loop
-            # self.check_input(self.ser.readline())
-            print("start game")
+
             for event in pygame.event.get():
                 if event.type == QUIT:
                     pygame.quit()
@@ -174,19 +198,6 @@ class Pong():
                 self.paddle1.y -= 1
             elif self.key_down_pressing:
                 self.paddle1.y += 1
-
-            # if self.key_esc_pressed:
-            #     pong_start = False
-            #     self.key_esc_pressed = False
-            #     try:
-            #         # pygame.display.quit()
-            #         pygame.quit()
-            #         break
-            #         # sys.exit()
-            #     except Exception as e:
-            #         print(e)
-            #     finally:
-            #         pygame.quit()
 
             self.drawArena()
             self.drawPaddle(self.paddle1)
@@ -199,10 +210,13 @@ class Pong():
             self.ballDirX = self.ballDirX * self.checkHitBall()
             self.artificialIntelligence()
 
-            self.displayScore()
+            # self.displayScore()
 
             pygame.display.update()
             self.FPSCLOCK.tick(FPS)
+        pong_start = False
+        self.screen.fill(pygame.color.Color(0, 0, 0))
+        pygame.quit()
         self.key_esc_pressed = False
 
     def check_input(self):
@@ -210,7 +224,7 @@ class Pong():
             if self.ser.inWaiting() > 0:
                 try:
                     data_str = str(self.ser.readline().decode('UTF-8')).rstrip().lstrip()
-                    print(data_str)
+                    # print("pong", data_str)
 
                     if data_str.startswith("PRESS"):
                         str_split = data_str.split(" ")
@@ -231,6 +245,7 @@ class Pong():
 
 
                 except Exception as e:
+                    pass
                     print(e)
 
             else:

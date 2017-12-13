@@ -2,27 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4b51cda-4239-4a58-b496-d53da656b886" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo1.jpg" afterPath="$PROJECT_DIR$/images/bmo1.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo10.jpg" afterPath="$PROJECT_DIR$/images/bmo10.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo14.jpg" afterPath="$PROJECT_DIR$/images/bmo14.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo15.jpg" afterPath="$PROJECT_DIR$/images/bmo15.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo16.jpg" afterPath="$PROJECT_DIR$/images/bmo16.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo17.jpg" afterPath="$PROJECT_DIR$/images/bmo17.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo18.jpg" afterPath="$PROJECT_DIR$/images/bmo18.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo2.jpg" afterPath="$PROJECT_DIR$/images/bmo2.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo22.jpg" afterPath="$PROJECT_DIR$/images/bmo22.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo23.jpg" afterPath="$PROJECT_DIR$/images/bmo23.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo24.jpg" afterPath="$PROJECT_DIR$/images/bmo24.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo25.jpg" afterPath="$PROJECT_DIR$/images/bmo25.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo26.jpg" afterPath="$PROJECT_DIR$/images/bmo26.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo3.jpg" afterPath="$PROJECT_DIR$/images/bmo3.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo4.jpg" afterPath="$PROJECT_DIR$/images/bmo4.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo52.jpg" afterPath="$PROJECT_DIR$/images/bmo52.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo6.jpg" afterPath="$PROJECT_DIR$/images/bmo6.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo7.jpg" afterPath="$PROJECT_DIR$/images/bmo7.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo8.jpg" afterPath="$PROJECT_DIR$/images/bmo8.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/bmo9.jpg" afterPath="$PROJECT_DIR$/images/bmo9.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/arduino/BMO/BMO.ino" afterPath="$PROJECT_DIR$/arduino/BMO/BMO.ino" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/face/face.py" afterPath="$PROJECT_DIR$/face/face.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_brain.py" afterPath="$PROJECT_DIR$/main_brain.py" />
@@ -38,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main_brain.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main_brain.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main_brain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="51" column="27" lean-forward="false" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+            <state relative-caret-position="249">
+              <caret line="50" column="56" lean-forward="false" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -70,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pong.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pong.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pong/pong.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="218" column="21" lean-forward="true" selection-start-line="218" selection-start-column="21" selection-end-line="218" selection-end-column="21" />
+            <state relative-caret-position="200">
+              <caret line="144" column="91" lean-forward="true" selection-start-line="144" selection-start-column="72" selection-end-line="144" selection-end-column="91" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -85,8 +64,8 @@
       <file leaf-file-name="temp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/temperature/temp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+            <state relative-caret-position="194">
+              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -107,8 +86,8 @@
       <file leaf-file-name="face.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/face/face.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="38" column="17" lean-forward="true" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+            <state relative-caret-position="390">
+              <caret line="53" column="38" lean-forward="true" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -177,16 +156,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/temperature/temp.py" />
-        <option value="$PROJECT_DIR$/main_brain.py" />
-        <option value="$PROJECT_DIR$/face/face.py" />
         <option value="$PROJECT_DIR$/pong/pong.py" />
+        <option value="$PROJECT_DIR$/temperature/temp.py" />
+        <option value="$PROJECT_DIR$/face/face.py" />
+        <option value="$PROJECT_DIR$/main_brain.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="296" />
-    <option name="y" value="26" />
+    <option name="x" value="277" />
+    <option name="y" value="34" />
     <option name="width" value="1146" />
     <option name="height" value="874" />
   </component>
@@ -352,7 +331,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="296" y="26" width="1146" height="874" extended-state="0" />
+    <frame x="277" y="34" width="1146" height="874" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991013" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -363,7 +343,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991013" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18115942" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18115942" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -855,10 +835,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pong/pong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="144" column="91" lean-forward="true" selection-start-line="144" selection-start-column="72" selection-end-line="144" selection-end-column="91" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/face/face.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="53" column="38" lean-forward="true" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/temperature/temp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
+        <state relative-caret-position="194">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -867,30 +867,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main_brain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="51" column="27" lean-forward="false" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
+        <state relative-caret-position="249">
+          <caret line="50" column="56" lean-forward="false" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face/face.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="38" column="17" lean-forward="true" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pong/pong.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="218" column="21" lean-forward="true" selection-start-line="218" selection-start-column="21" selection-end-line="218" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>

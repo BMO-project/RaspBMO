@@ -35,7 +35,7 @@ class Face():
 
         # pygame.init()
         size = (WINDOWWIDTH, WINDOWHEIGHT)
-        screen = pygame.display.set_mode(size)
+        screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
         pygame.display.set_caption("Face")
         c = pygame.time.Clock()  # create a clock object for timing
 

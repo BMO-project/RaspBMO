@@ -48,7 +48,7 @@ class BMOBrain():
                         elif msg_arr[1] == "TEMP":  # Show temperature
                             if not Temp_start:
                                 self.temp = Temp(self.ser)
-                                self.temp.setTemp(32.6, 45)
+                                self.temp.setTemp(14, 61)
                                 self.temp.showTemp()
                                 time.sleep(1)
                             pass

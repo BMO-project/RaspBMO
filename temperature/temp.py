@@ -27,7 +27,7 @@ class Temp():
 
         pygame.init()
 
-        screen = pygame.display.set_mode((500, 300))
+        screen = pygame.display.set_mode((480, 320), pygame.FULLSCREEN)
 
         pygame.display.set_caption("Key Event")
         clock = pygame.time.Clock()

@@ -63,7 +63,7 @@ void loop() {
 
   if (!isRunning){
     if (pressed_PONG == 0){
-      delay(1000);
+//      delay(1000);
       Serial.println("OPEN PONG");
       delay(1000);
       Serial.println("OPEN PONG");
@@ -74,15 +74,15 @@ void loop() {
       delay(1000);
       Serial.println("OPEN TEMP");
       delay(1000);
-//    float curTemp;
-//    curTemp = getTemperature();
-//    if (curTemp != -256){
-//      Serial.print("MSG TEMP ");
-//      Serial.println(curTemp);
-//    }
+    float curTemp;
+    curTemp = getTemperature();
+    if (curTemp != -256){
+      Serial.print("MSG TEMP ");
+      Serial.println(curTemp);
+    }
       isRunning = true;
     }else if (pressed_FACE == 0){
-      delay(1000);
+//      delay(1000);
       Serial.println("OPEN FACE");
       delay(1000);
       isRunning = true;

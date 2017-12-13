@@ -73,7 +73,7 @@ class Temp():
             if self.ser.inWaiting() > 0:
                 try:
                     data_str = str(self.ser.readline().decode('UTF-8')).rstrip().lstrip()
-                    print("temp", data_str)
+                    # print("pong", data_str)
 
                     if data_str.startswith("PRESS"):
                         str_split = data_str.split(" ")
@@ -92,9 +92,11 @@ class Temp():
                         elif str_split[1] == "DOWN":
                             self.key_down_pressing = False
 
+
                 except Exception as e:
+                    pass
                     print(e)
 
-                pass
             else:
                 pass
+                # print("b")

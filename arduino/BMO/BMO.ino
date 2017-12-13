@@ -91,9 +91,8 @@ void loop() {
   }else{
     if (pressed_ESC == 0){
     isRunning = false;
-    delay(1000);
     Serial.println("PRESS ESC");
-    delay(1000);
+    delay(500);
     Serial.println("OPEN FACE");
     Serial.println("OPEN FACE");
     delay(1000);
